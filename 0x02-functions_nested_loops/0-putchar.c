@@ -1,23 +1,17 @@
 #include "main.h"
-
 /**
- * main - Entry point
- *
- * Return: Always 0 (Success)
-
+ * main - prints the string "main" from a character array.
+ * Return: 0 on success.
  */
 int main(void)
 {
+	char c[] = "Holberton";
+	int i;
 
-        _putchar('_');
-	_putchar('p');
-	_putchar('u');
-	_putchar('t');
-	_putchar('c');
-	_putchar('h');
-	_putchar('a');
-	_putchar('r');
+	for (i = 0; i < 9; i++)
+	{
+		_putchar(c[i]);
+	}
 	_putchar('\n');
-
-	return(0);
+	return (0);
 }
