@@ -1,29 +1,30 @@
 #include <stdlib.h>
+#include <stdio.h>
 /**
- * str_concat - concatenates two strings
- * @s1: first string
- * @s2: second string
- * Return: pointer to a new buffer containing s1 and s2
+ * _strdup - copies a string into a new buffer
+ * @str: the string to copy
+ * Return: pointer to a new buffer
  */
-char *str_concat(char *s1, char *s2)
+char *_strdup(char *str)
 {
 	char *p;
-	int s1count, s2count, sizeBuffer, i;
+	unsigned int len, j;
 
-	/*Check for valid strings*/
-	if (s1 == NULL)
-		s1 = "";
-	if (s2 == NULL)
-		s2 = "";
-	for (s1count = 0; s1[s1count]; s1count++)
-		;
-	for (s2count = 0; s2[s2count]; s2count++)
-		;
-	sizeBuffer = s1count + s2count + 1;
-	p = malloc(sizeBuffer * sizeof(char));
-	if (p == NULL)
+	if (str == NULL)
 		return (NULL);
-	for (i = 0; i < sizeBuffer; i++)
-		i < s1count ? (p[i] = s1[i]) : (p[i] = s2[i - s1count]);
+	for (len = 0; str[len] != '\0'; len++)
+		;
+	len++;
+	if (len < 1)
+		return (NULL);
+	p = malloc(len * sizeof(char));
+	if (p == NULL)
+	{
+		free(p);
+		return (NULL);
+	}
+	for (j = 0; j < len; j++)
+		p[j] = str[j];
+	p[j] = '\0';
 	return (p);
 }
